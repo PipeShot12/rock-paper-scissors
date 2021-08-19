@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { useState } from 'react'
+import GameChoices from './components/GameChoices'
+import Header from './components/Header'
+import Modal from './components/Modal'
+import RulesButton from './components/RulesButton'
+import Play from './components/Play'
+import { useGameContext } from './context/gameContext'
 
-function App() {
+function App () {
+  const [showModal, setShowModal] = useState(false)
+  const { userChoice } = useGameContext()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Header />
+      {userChoice ? <Play /> : <GameChoices />}
+      <RulesButton onClick={() => setShowModal(true)} />
+      {showModal && <Modal onClose={setShowModal} />}
+    </>
+  )
 }
 
-export default App;
+export default App
