@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import mediaQuery from '../../mediaQuery'
 export default function RulesButton (props) {
   return (
     <Button {...props}>RULES</Button>
@@ -16,13 +17,22 @@ padding: 10px 50px;
 letter-spacing: 0.1em;
 font-family: var(--font);
 font-weight: 400;
-position: absolute;
-right: 30px;
-bottom: 30px;
+display: block;
 cursor: pointer;
+position: absolute;
+bottom: 30px;
+left: 50%;
+transform: translateX(-50%);
 &:hover{
     background: white;
     color:var(--Score-Text);
     font-weight: 700;
+}
+@media(min-width: ${mediaQuery.desktop}){
+position: absolute;
+right: 30px;
+bottom: 30px;
+transform: translateX(0);
+left: auto;
 }
 `

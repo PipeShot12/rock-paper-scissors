@@ -13,16 +13,25 @@ export const whoWon = (user, house) => {
     case 'rockscissors':
     case 'scissorspaper':
     case 'paperrock':
-      return 'win'
+      return 'YOU WIN'
     case 'rockpaper':
     case 'scissorsrock':
     case 'paperscissors':
-      return 'lose'
+      return 'YOU LOSE'
     case 'rockrock':
     case 'scissorsscissors':
     case 'paperpaper':
-      return 'tie'
+      return 'TIE'
     default:
       return undefined
+  }
+}
+export const colorButtonPlayAgain = (result) => {
+  if (result === 'YOU WIN') {
+    return '#04b802'
+  } else if (result === 'YOU LOSE') {
+    return '#d80000'
+  } else if (result === 'TIE') {
+    return '#00b0e0'
   }
 }

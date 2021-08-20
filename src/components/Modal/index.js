@@ -4,6 +4,7 @@ import close from '../../assets/images/icon-close.svg'
 import { createPortal } from 'react-dom'
 import rules from '../../assets/images/image-rules.svg'
 import useClickOutside from '../../hooks/useClickOutside'
+import mediaQuery from '../../mediaQuery'
 
 function Modal ({ onClose }) {
   const nodeRef = useClickOutside(() => onClose(false))
@@ -35,8 +36,8 @@ align-items: center;
 justify-content: center;
 `
 const ModalBox = styled.div`
-width: 30%;
-height: 50%;
+width: 80%;
+height: 80%;
 background-color: white;
 border-radius: 10px;
 position: relative;
@@ -64,8 +65,18 @@ align-items: center;
   margin-bottom: 15px;
 }
 & > h1 {
+  text-align: center;
+  width: 100%;
+  line-height: 0;
+}
+@media(min-width:${mediaQuery.desktop}){
+width: 30%;
+height: 50%;
+& > h1 {
   padding-left: 20px;
   width: 100%;
   line-height: 0;
+  text-align: left;
+  }
 }
 `

@@ -26,18 +26,21 @@ display: flex;
 align-items: center;
 margin-top: 35px;
 & > img{
-    width: 140px;
+    width: 100px;
 }
 padding: 10px 20px;
 justify-content: space-between;
 @media(min-width: ${mediaQuery.desktop}){
     width: 50%;
+    & > img{
+    width: 140px;
+  }
 };
 `
 const ContainerScore = styled.div`
 background-color: white;
 border-radius: 5px;
-width: 20%;
+width: 30%;
 height: 100%;
 display: flex;
 flex-direction: column;
@@ -45,9 +48,13 @@ align-items: center;
 justify-content: space-between;
 box-shadow: 0 2px 10px -5px #000;
 position: relative;
+@media(min-width: ${mediaQuery.desktop}){
+  width: 20%;
+  height: 100%;
+};
 `
 const ScoreTitle = styled.div`
-font-size: 1rem;
+font-size: 0.8rem;
 letter-spacing: 0.1em;
 color:var(--Score-Text);
 padding: 0;
@@ -55,12 +62,18 @@ margin: 0;
 position: absolute;
 top: 5px;
 font-weight: 600;
+@media(min-width: ${mediaQuery.desktop}){
+  font-size: 1rem;
+};
 `
 const Score = styled.div`
 color:var(--Dark-Text);
 padding: 0;
 margin: 0;
 font-weight: 700;
-font-size: 3.5rem;
+font-size: 2.5rem;
 margin-top: 15px;
+@media(min-width: ${mediaQuery.desktop}){
+  font-size: 3.5rem;
+};
 `

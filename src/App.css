@@ -20,21 +20,14 @@
 *{
     box-sizing: border-box;
 }
-html,body{
-    margin: 0;
-    padding:0;
-    /* position:absolute;
-    bottom:0;
-    top:0;
-    right:0;
-    left:0; */
-    height: 100%;
-    width: 100%;
-    overflow:auto
-}
+
 body{
     font-family: var(--font);
     background: radial-gradient(var(--Radial-Gradient)) no-repeat;
     background-attachment: fixed;
-}
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
 
+}
