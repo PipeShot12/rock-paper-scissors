@@ -7,20 +7,22 @@ import mediaQuery from '../../mediaQuery'
 
 export default function GameChoices () {
   return (
-    <ContainerChoices>
-      <img src={bgTriangle} alt='triangle background' />
-      {iconChoices.map(({ icon, text, grid, bg, shadow, id }) =>
-        <Choice
-          key={text}
-          icon={icon}
-          alt={text}
-          grid={grid}
-          bg={bg}
-          shadow={shadow}
-          choice={id}
-          allowClick
-        />)}
-    </ContainerChoices>
+    <div style={{ display: 'grid', placeItems: 'center', height: '65vh' }}>
+      <ContainerChoices>
+        <img src={bgTriangle} alt='triangle background' />
+        {iconChoices.map(({ icon, text, grid, bg, shadow, id }) =>
+          <Choice
+            key={text}
+            icon={icon}
+            alt={text}
+            grid={grid}
+            bg={bg}
+            shadow={shadow}
+            choice={id}
+            allowClick
+          />)}
+      </ContainerChoices>
+    </div>
   )
 }
 
@@ -31,8 +33,8 @@ grid-template-areas:
 'paper scissors'
 'rock rock';
 place-items: center;
-width: 100%;
-height: 65vh;
+width: 85%;
+height: 45vh;
 max-width: 100%;
 position: relative;
 margin-top: 5%;
@@ -42,6 +44,7 @@ margin-top: 5%;
     width: 60%;
     position: absolute;
     z-index: -5;
+    
 }
 @media(min-width:${mediaQuery.desktop}){
 height: 30em;

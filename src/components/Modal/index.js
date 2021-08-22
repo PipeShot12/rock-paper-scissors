@@ -5,11 +5,12 @@ import { createPortal } from 'react-dom'
 import rules from '../../assets/images/image-rules.svg'
 import useClickOutside from '../../hooks/useClickOutside'
 import mediaQuery from '../../mediaQuery'
+import { animated } from 'react-spring'
 
-function Modal ({ onClose }) {
+function Modal ({ onClose, style }) {
   const nodeRef = useClickOutside(() => onClose(false))
   return (
-    <ContainerModal>
+    <ContainerModal style={style}>
       <ModalBox ref={nodeRef}>
         <span onClick={() => onClose(false)} />
         <h1>RULES</h1>
@@ -18,13 +19,13 @@ function Modal ({ onClose }) {
     </ContainerModal>
   )
 }
-export default function ModalPortal ({ onClose }) {
+export default function ModalPortal ({ onClose, style }) {
   return createPortal(
-    <Modal onClose={onClose} />,
+    <Modal onClose={onClose} style={style} />,
     document.getElementById('modal')
   )
 }
-const ContainerModal = styled.div`
+const ContainerModal = styled(animated.div)`
 position: absolute;
 top: 0;
 right: 0;
@@ -48,17 +49,18 @@ justify-content: space-around;
 align-items: center;
 & > span{
     position: absolute;
-    top: 0px;
-    right: 0;
-    height: 50px;
-    width: 50px;
+    top: 10px;
+    right: 10px;
+    height: 25px;
+    width: 25px;
     display: grid;
     place-items: center;
-    
-    ::after{
-    content: url(${close});
+    background-image: url(${close});
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
     cursor: pointer;
-    }
+
 }
 & > img {
   width: 90%;

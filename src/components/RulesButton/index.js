@@ -23,8 +23,14 @@ position: absolute;
 bottom: 7%;
 left: 50%;
 transform: translateX(-50%);
+background-position: 50% 50%;
+background-image: linear-gradient(white,white);
+background-repeat: no-repeat;
+background-size: 0% 100%;
+font-weight: 700;
+transition: background-size .2s ease-in-out, color .2s ease-in-out;
 &:hover{
-    background: white;
+    background-size: 100% 100%;
     color:var(--Score-Text);
     font-weight: 700;
 }

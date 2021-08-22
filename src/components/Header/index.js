@@ -33,7 +33,7 @@ justify-content: space-between;
 @media(min-width: ${mediaQuery.desktop}){
     width: 50%;
     & > img{
-    width: 140px;
+    width: 8.75em;
   }
 };
 `

@@ -34,7 +34,7 @@ export default function Play () {
     <ContainerPlay>
       <div className='user-picked'>
         <p>YOU PICKED</p>
-        <Choice icon={userChoiceObj.icon} alt={userChoiceObj.text} bg={userChoiceObj.bg} shadow={userChoiceObj.shadow} allowClick={false} />
+        <Choice win={win === 'YOU WIN' && true} icon={userChoiceObj.icon} alt={userChoiceObj.text} bg={userChoiceObj.bg} shadow={userChoiceObj.shadow} allowClick={false} />
       </div>
       {win &&
         <ContainerButtonPlayAgain colorTitle={colorButtonPlayAgain(win)}>
@@ -43,7 +43,7 @@ export default function Play () {
         </ContainerButtonPlayAgain>}
       <div className='house-picked'>
         <p>THE HOUSE PICKED</p>
-        {houseChoice ? <Choice icon={houseChoiceObj.icon} alt={houseChoiceObj.text} bg={houseChoiceObj.bg} shadow={houseChoiceObj.shadow} allowClick={false} /> : <ChoiceWait />}
+        {houseChoice ? <Choice win={win === 'YOU LOSE' && true} icon={houseChoiceObj.icon} alt={houseChoiceObj.text} bg={houseChoiceObj.bg} shadow={houseChoiceObj.shadow} allowClick={false} /> : <ChoiceWait />}
       </div>
     </ContainerPlay>
   )
@@ -98,7 +98,7 @@ background-color: rgba(0,0,0,0.2);
   }
 `
 const Button = styled.button`
-background: white;
+background-color: transparent;
 outline: none;
 border-radius: 8px;
 font-size: 1.1rem;
@@ -109,9 +109,15 @@ letter-spacing: 0.1em;
 font-family: var(--font);
 font-weight: 600;
 cursor: pointer;
+background-position: 50% 50%;
+background-image: linear-gradient(white,white);
+background-repeat: no-repeat;
+background-size: 100% 100%;
+transition: background-size .2s ease-in-out, color .2s ease-in-out;
 &:hover{
-    background: none;
+    background-size: 0% 100%;
     color:white;
+    font-weight: 600;
 }
 `
 const ContainerButtonPlayAgain = styled.div`

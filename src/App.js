@@ -6,19 +6,26 @@ import Modal from './components/Modal'
 import RulesButton from './components/RulesButton'
 import Play from './components/Play'
 import { useGameContext } from './context/gameContext'
+import { animated } from 'react-spring'
+import { AnimationEnterApp, AnimationModal } from '../src/animations'
 
 function App () {
   const [showModal, setShowModal] = useState(false)
   const { userChoice } = useGameContext()
-
+  const { transition } = AnimationModal(showModal)
   return (
     <>
-      <Header />
-      {userChoice ? <Play /> : <GameChoices />}
-      <RulesButton onClick={() => setShowModal(true)} />
-      {showModal && <Modal onClose={setShowModal} />}
+      <animated.div style={AnimationEnterApp()}>
+        <Header />
+        {userChoice ? <Play /> : <GameChoices />}
+      </animated.div>
+      <RulesButton onClick={() => setShowModal(prev => !prev)} />
+      {transition((style, item) => item &&
+        (
+          <Modal onClose={setShowModal} style={style} />
+        )
+      )}
     </>
   )
 }
-
 export default App
