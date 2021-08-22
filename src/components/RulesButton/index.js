@@ -20,7 +20,7 @@ font-weight: 400;
 display: block;
 cursor: pointer;
 position: absolute;
-bottom: 30px;
+bottom: 7%;
 left: 50%;
 transform: translateX(-50%);
 &:hover{

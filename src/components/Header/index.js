@@ -24,7 +24,7 @@ border: 3px solid var(--Header-Outline);
 border-radius: 10px;
 display: flex;
 align-items: center;
-margin-top: 35px;
+margin-top: 1em;
 & > img{
     width: 100px;
 }

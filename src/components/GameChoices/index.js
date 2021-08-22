@@ -8,6 +8,7 @@ import mediaQuery from '../../mediaQuery'
 export default function GameChoices () {
   return (
     <ContainerChoices>
+      <img src={bgTriangle} alt='triangle background' />
       {iconChoices.map(({ icon, text, grid, bg, shadow, id }) =>
         <Choice
           key={text}
@@ -31,36 +32,21 @@ grid-template-areas:
 'rock rock';
 place-items: center;
 width: 100%;
-height: 300px;
+height: 65vh;
 max-width: 100%;
 position: relative;
-margin-top: 50px;
-&::before{
-    content: "";
-    height: 100%;
-    width: 100%;
-    background: url(${bgTriangle}) no-repeat;
+margin-top: 5%;
+
+& > img{
+  height: 60%;
+    width: 60%;
     position: absolute;
-    top:5%;
-    left: 5%;
-    object-fit: fill;
-    z-index: -2;
-    transform: scale(0.8);
+    z-index: -5;
 }
 @media(min-width:${mediaQuery.desktop}){
-height: 30rem;
+height: 30em;
 width: 50%;
 margin: 0 auto;
-margin-top: 50px;
-&::before{
-    content: "";
-    height: 100%;
-    width: 100%;
-    background: url(${bgTriangle}) no-repeat;
-    position: absolute;
-    top:25%;
-    left: 27%;
-    transform: scale(1);
-  }
+margin-top: 4%;
 }
 `
