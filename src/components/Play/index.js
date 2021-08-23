@@ -4,6 +4,8 @@ import Choice from '../Choice'
 import { iconChoices, whoWon, colorButtonPlayAgain } from '../../utils'
 import { useGameContext } from '../../context/gameContext'
 import mediaQuery from '../../mediaQuery'
+import { CommonAnimation } from '../../animations'
+import { animated } from 'react-spring'
 
 export default function Play () {
   const [houseChoice, setHouseChoice] = useState(false)
@@ -31,7 +33,7 @@ export default function Play () {
     }
   }, [win, setScore])
   return (
-    <ContainerPlay>
+    <ContainerPlay style={CommonAnimation()}>
       <div className='user-picked'>
         <p>YOU PICKED</p>
         <Choice win={win === 'YOU WIN' && true} icon={userChoiceObj.icon} alt={userChoiceObj.text} bg={userChoiceObj.bg} shadow={userChoiceObj.shadow} allowClick={false} />
@@ -48,7 +50,7 @@ export default function Play () {
     </ContainerPlay>
   )
 }
-const ContainerPlay = styled.div`
+const ContainerPlay = styled(animated.div)`
 display: flex;
 justify-content: space-around;
 align-items: center;

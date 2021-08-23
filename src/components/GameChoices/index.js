@@ -4,10 +4,12 @@ import Choice from '../Choice'
 import bgTriangle from '../../assets/images/bg-triangle.svg'
 import { iconChoices } from '../../utils'
 import mediaQuery from '../../mediaQuery'
+import { animated } from 'react-spring'
+import { CommonAnimation } from '../../animations'
 
 export default function GameChoices () {
   return (
-    <div style={{ display: 'grid', placeItems: 'center', height: '65vh' }}>
+    <ContainerMainGame style={CommonAnimation()}>
       <ContainerChoices>
         <img src={bgTriangle} alt='triangle background' />
         {iconChoices.map(({ icon, text, grid, bg, shadow, id }) =>
@@ -22,10 +24,14 @@ export default function GameChoices () {
             allowClick
           />)}
       </ContainerChoices>
-    </div>
+    </ContainerMainGame>
   )
 }
-
+const ContainerMainGame = styled(animated.div)`
+display: grid; 
+place-items: center ;
+height: 65vh;
+`
 const ContainerChoices = styled.div`
 display: grid;
 grid-template-columns: repeat(2,1fr);

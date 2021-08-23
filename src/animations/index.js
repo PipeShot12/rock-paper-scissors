@@ -1,4 +1,4 @@
-import { useSpring, config, useTransition, animated } from '@react-spring/core'
+import { useSpring, config, useTransition } from '@react-spring/core'
 
 export const AnimationEnterApp = () => {
   return (useSpring({

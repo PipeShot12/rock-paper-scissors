@@ -2,19 +2,23 @@ import React from 'react'
 import styled from 'styled-components'
 import { useGameContext } from '../../context/gameContext'
 import mediaQuery from '../../mediaQuery'
+import { animated } from 'react-spring'
+import { CommonAnimation } from '../../animations'
 
 export default function Choice ({ icon, alt, grid, bg, shadow, choice, allowClick, win }) {
   const { setUserChoice } = useGameContext()
   return (
-    <ButtonChoice grid={grid} onClick={allowClick ? () => setUserChoice(choice) : null} allowClick={allowClick}>
+
+    <ButtonChoice style={CommonAnimation()} grid={grid} onClick={allowClick ? () => setUserChoice(choice) : null} allowClick={allowClick}>
       <ContainerChoice bg={bg} shadow={shadow} win={win}>
         <img src={icon} alt={alt} />
       </ContainerChoice>
     </ButtonChoice>
+
   )
 }
 
-const ButtonChoice = styled.button`
+const ButtonChoice = styled(animated.button)`
   background: none;
   outline: none;
   border: none;
