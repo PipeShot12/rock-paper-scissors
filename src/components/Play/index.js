@@ -128,7 +128,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 position: absolute;
-bottom: 20%;
+bottom: 25%;
 
 & > h2{
   color: ${props => props.colorTitle};
